@@ -32,6 +32,20 @@ public partial class ListPage : ContentPage
         });
 
     }
+    async void OnDeleteItemButtonClicked(object sender, EventArgs e)
+    {
+        var selectedProduct = listView.SelectedItem as Product;
+        if (selectedProduct != null)
+        {
+            await App.Database.DeleteProductAsync(selectedProduct);
+            listView.ItemsSource = await App.Database.GetListProductsAsync(((ShopList)BindingContext).ID);
+        }
+        else
+        {
+            await DisplayAlert("Error", "Please select an item to delete.", "OK");
+        }
+    }
+
     protected override async void OnAppearing()
     {
         base.OnAppearing();

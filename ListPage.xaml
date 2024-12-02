@@ -33,5 +33,13 @@
         </ListView>
         <Button Text="Add/Choose Item to buy" MaximumWidthRequest="300" 
 Clicked="OnChooseButtonClicked"/>
+        <Button Text="Delete Item"
+        BackgroundColor="Red"
+        TextColor="White"
+        Clicked="OnDeleteItemButtonClicked" />
     </StackLayout>
 </ContentPage>
+
+ 
+
+       
